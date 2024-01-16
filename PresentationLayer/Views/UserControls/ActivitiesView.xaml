@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="PresentationLayer.Views.UserControls.ActivitiesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.Views.UserControls"
+             xmlns:components="clr-namespace:PresentationLayer.Views.Components"
+             xmlns:uc="clr-namespace:PresentationLayer.ViewModel.UserControls"
+             mc:Ignorable="d" 
+             d:Background="#242536" d:Width="450" d:Height="450" d:DataContext="{d:DesignInstance Type=uc:ActivitiesViewModel}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" Grid.Row="1" Content="Aktiviteter" FontSize="30" Foreground="#BDBDBD" Padding="0" />
+        <components:CustomButton Grid.Column="1" Grid.Row="3" Command="{Binding BackCommand}" Content="Tillbaka" FontSize="15" HorizontalAlignment="Left" />
+        <components:CustomDataGrid Grid.Column="1" Grid.Row="5" ItemsSource="{Binding Activities}" SelectedItem="{Binding SelectedActivity}" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="AktivitetID" Binding="{Binding AktivitetID}" />
+                <DataGridTextColumn Header="Aktivitet" Binding="{Binding Benämning}" />
+                <DataGridTextColumn Header="Avdelning" Binding="{Binding Avdelning}" />
+            </DataGrid.Columns>
+        </components:CustomDataGrid>
+        <Grid Grid.Column="1" Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <components:CustomButton Visibility="{Binding NewActivityPermission.Visibility}" Command="{Binding OpenNewActivityCommand}" Content="Lägg till aktivitet" FontSize="15" Margin="0,0,10,0" />
+                <components:CustomButton Visibility="{Binding EditActivityPermission.Visibility}" Command="{Binding DeleteActivityCommand}" Content="Radera aktivitet" FontSize="15" Margin="0,0,10,0" />
+                <components:CustomButton Visibility="{Binding EditActivityPermission.Visibility}" Command="{Binding OpenEditActivityCommand}" Content="Redigera aktivitet" FontSize="15" />
+            </StackPanel>
+            <components:PrintButton Grid.Column="2" />
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Images\menu-Activity.png" />
+    <None Remove="Views\Images\menu-ActivityExpenseBudget.png" />
+    <None Remove="Views\Images\menu-Customer.png" />
+    <None Remove="Views\Images\menu-Employees.png" />
+    <None Remove="Views\Images\menu-LockRevenueBudgets.png" />
+    <None Remove="Views\Images\menu-Product.png" />
+    <None Remove="Views\Images\menu-ProductExpenseBudget.png" />
+    <None Remove="Views\Images\menu-Prognosis.png" />
+    <None Remove="Views\Images\menu-Results.png" />
+    <None Remove="Views\Images\menu-ReturnOfInvestment.png" />
+    <None Remove="Views\Images\menu-RevenueBudgetsByCustomer.png" />
+    <None Remove="Views\Images\menu-RevenueBudgetsByProduct.png" />
+    <None Remove="Views\Images\menu-SchablonExpense.png" />
+    <None Remove="Views\Images\menu-Systemadministration.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\Images\menu-Activity.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\menu-ActivityExpenseBudget.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\menu-Customer.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\menu-Employees.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\menu-LockRevenueBudgets.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\menu-Product.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\menu-ProductExpenseBudget.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\menu-Prognosis.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\menu-Results.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\menu-ReturnOfInvestment.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\menu-RevenueBudgetsByCustomer.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\menu-RevenueBudgetsByProduct.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\menu-SchablonExpense.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\menu-Systemadministration.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

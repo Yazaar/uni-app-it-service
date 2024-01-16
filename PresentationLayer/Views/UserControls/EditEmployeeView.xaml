@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="PresentationLayer.Views.UserControls.EditEmployeeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.Views.UserControls"
+             xmlns:components="clr-namespace:PresentationLayer.Views.Components"
+             xmlns:uc="clr-namespace:PresentationLayer.ViewModel.UserControls"
+             mc:Ignorable="d" 
+             d:Background="#242536" d:Width="750" d:Height="450" d:DataContext="{d:DesignInstance Type=uc:EditEmployeeViewModel}">
+    <Grid>
+        <Grid HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="1" Grid.Row="1" Content="Redigera personal" FontSize="30" Foreground="#BDBDBD" Margin="-5,0,0,0" />
+            <components:CustomButton Grid.Column="1" Grid.Row="3" Command="{Binding BackCommand}" Content="Tillbaka" FontSize="15" HorizontalAlignment="Left" />
+            <components:CustomTextBox Grid.Column="1" Grid.Row="5" Text="{Binding SocialSecurityNumber, Mode=OneWay}" Description="Personnummer" IsReadOnly="True" Width="150" HorizontalAlignment="Left" />
+            <components:CustomTextBox Grid.Column="1" Grid.Row="7" Text="{Binding Name}" Description="Namn" Width="150" HorizontalAlignment="Left" />
+            <components:CustomTextBox Grid.Column="1" Grid.Row="9" Text="{Binding MonthlySalary}" Description="Månadslön (kr)" Width="150" HorizontalAlignment="Left" />
+            <components:CustomTextBox Grid.Column="1" Grid.Row="11" Text="{Binding EmploymentRate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Description="Sysselsättningsgrad" Width="150" HorizontalAlignment="Left" />
+            <components:CustomTextBox Grid.Column="1" Grid.Row="13" Text="{Binding VacancyDeduction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Description="Vakansavdrag" Width="150" HorizontalAlignment="Left" />
+            <components:CustomTextBox Grid.Column="1" Grid.Row="15" Text="{Binding AnnualWork, Mode=OneWay}" Description="Årsarbete" Width="150" HorizontalAlignment="Left" />
+            <components:CustomButton Grid.Column="1" Grid.Row="17" Command="{Binding SaveEmployeeCommand}" Content="Spara personal" FontSize="15" HorizontalAlignment="Left" Padding="7"/>
+
+            <components:CustomDataGrid ItemsSource="{Binding EmployeeDistributions}" Grid.Column="2" Grid.Row="5" Grid.RowSpan="11" VerticalAlignment="Top" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Placering" Binding="{Binding Avdelning}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Andel/årsarbete (%)" Binding="{Binding Andel}" />
+                </DataGrid.Columns>
+            </components:CustomDataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

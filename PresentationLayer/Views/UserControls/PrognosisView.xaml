@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="PresentationLayer.Views.UserControls.PrognosisView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.Views.UserControls"
+             xmlns:components="clr-namespace:PresentationLayer.Views.Components"
+             xmlns:uc="clr-namespace:PresentationLayer.ViewModel.UserControls"
+             mc:Ignorable="d" 
+             d:Background="#242536" d:Width="800" d:Height="450" d:DataContext="{d:DesignInstance Type=uc:PrognosisViewModel}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Content="Uppföljning och prognostisering" FontSize="30" Foreground="#BDBDBD" Padding="0" />
+            <StackPanel Grid.Column="2" Orientation="Horizontal">
+                <ComboBox ItemsSource="{Binding PrognosisMonths}" SelectedItem="{Binding SelectedMonth}" Width="125" VerticalAlignment="Bottom" Margin="0,0,10,0" />
+                <StackPanel>
+                    <Label Content="Status månad" Foreground="#BDBDBD" Padding="0" />
+                    <TextBox HorizontalAlignment="Left" Width="125" FontSize="15" Background="#151527" BorderThickness="0" Foreground="#BDBDBD" Padding="2" IsReadOnly="True" Text="{Binding MonthLockedText, Mode=OneWay}" />
+                </StackPanel>
+            </StackPanel>
+            <components:CustomButton Grid.Column="0" Grid.Row="2" Command="{Binding BackCommand}" Content="Tillbaka" FontSize="15" HorizontalAlignment="Left" />
+            <StackPanel Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right">
+                <Label Content="Status total" Foreground="#BDBDBD" Padding="0" />
+                <TextBox HorizontalAlignment="Left" Width="125" FontSize="15" Background="#151527" BorderThickness="0" Foreground="#BDBDBD" Padding="2" IsReadOnly="True" Text="{Binding AllLockedText, Mode=OneWay}" />
+            </StackPanel>
+        </Grid>
+
+
+        <ScrollViewer Grid.Column="1" Grid.Row="5" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="120" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Column="1" Grid.Row="0" Content="{Binding BudgetSum, Mode=OneWay}" Foreground="#BDBDBD" />
+                <Label Grid.Column="2" Grid.Row="0" Content="{Binding MonthProfitsSum, Mode=OneWay}" Foreground="#BDBDBD" />
+                <Label Grid.Column="3" Grid.Row="0" Content="{Binding PastYearProfitsSum, Mode=OneWay}" Foreground="#BDBDBD" />
+                <Label Grid.Column="4" Grid.Row="0" Content="{Binding ReprocessedSum, Mode=OneWay}" Foreground="#BDBDBD" />
+                <Label Grid.Column="5" Grid.Row="0" Content="{Binding TrendSum, Mode=OneWay}" Foreground="#BDBDBD" />
+                <Label Grid.Column="6" Grid.Row="0" Content="{Binding PrevProgSum, Mode=OneWay}" Foreground="#BDBDBD" />
+                <Label Grid.Column="7" Grid.Row="0" Content="{Binding CurrentProgSum, Mode=OneWay}" Foreground="#BDBDBD" />
+                <Label Grid.Column="8" Grid.Row="0" Content="{Binding ProgBudgetSum, Mode=OneWay}" Foreground="#BDBDBD" />
+                <components:CustomDataGrid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="9" ItemsSource="{Binding Prognosises}" SelectedItem="{Binding SelectedPrognosis}" IsReadOnly="False" CanUserResizeColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Produkt" Binding="{Binding Produktnamn, Mode=OneWay}" Width="100" />
+                        <DataGridTextColumn Header="Budget" Binding="{Binding Budget, Mode=OneWay}" Width="100" />
+                        <DataGridTextColumn Header="Utfall mån" Binding="{Binding UtfallMån, Mode=OneWay}" Width="80" />
+                        <DataGridTextColumn Header="Utfall acc" Binding="{Binding UtfallAcc, Mode=OneWay}" Width="100" />
+                        <DataGridTextColumn Header="Upparbetat" Binding="{Binding Upparbetat, Mode=OneWay}" Width="100" />
+                        <DataGridTextColumn Header="Trend" Binding="{Binding Trend, Mode=OneWay}" Width="100" />
+                        <DataGridTextColumn Header="Förg. prognos" Binding="{Binding FörgProg, Mode=OneWay}" Width="100" />
+                        <DataGridTextColumn Header="Prognos" Binding="{Binding NuPrognos, Mode=OneWay}" Width="100" />
+                        <DataGridTextColumn Header="Prognos-budget" Binding="{Binding ProgBudget, Mode=OneWay}" Width="120" />
+                    </DataGrid.Columns>
+                </components:CustomDataGrid>
+            </Grid>
+        </ScrollViewer>
+
+        <Grid Grid.Column="1" Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <components:CustomTextBox Visibility="{Binding EditPrognosisPermission.Visibility}" Text="{Binding Reprocessed}" Description="Upparbetat" Width="125" Margin="0,0,10,0" />
+                <components:CustomTextBox Visibility="{Binding EditPrognosisPermission.Visibility}" Text="{Binding CurrentPrognosis}" Description="Prognos" Width="125" Margin="0,0,10,0" />
+                <components:CustomButton Visibility="{Binding EditPrognosisPermission.Visibility}" Command="{Binding SavePrognosisCommand}" Content="Spara" FontSize="15" Margin="0,0,20,0" />
+                <components:CustomButton Visibility="{Binding LockPrognosisPermission.Visibility}" Command="{Binding LockMonthCommand}" Content="Lås månad" FontSize="15" />
+            </StackPanel>
+            <StackPanel Grid.Column="2" Orientation="Horizontal">
+                <components:CustomButton Command="{Binding ImportRevenueFileCommand}" Content="Import intäkt" FontSize="15" />
+                <components:CustomButton Content="Exportera excel" FontSize="15" Margin="10,0,0,0" />
+                <components:PrintButton Margin="10,0,0,0" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

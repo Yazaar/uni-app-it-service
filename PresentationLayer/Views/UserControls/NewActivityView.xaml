@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="PresentationLayer.Views.UserControls.NewActivityView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.Views.UserControls"
+             xmlns:components="clr-namespace:PresentationLayer.Views.Components"
+             xmlns:uc="clr-namespace:PresentationLayer.ViewModel.UserControls"
+             mc:Ignorable="d" 
+             d:Background="#242536" d:Width="450" d:Height="450" d:DataContext="{d:DesignInstance Type=uc:NewActivityViewModel}">
+    <Grid HorizontalAlignment="Left">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" Grid.Row="1" Content="Ny aktivitet" FontSize="30" Foreground="#BDBDBD" />
+        <components:CustomButton Grid.Column="1" Grid.Row="3" Command="{Binding BackCommand}" Content="Tillbaka" FontSize="15" HorizontalAlignment="Left" />
+        <components:CustomTextBox Grid.Column="1" Grid.Row="5" Text="{Binding ActivityID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Description="AktivitetID" Width="150" HorizontalAlignment="Left" />
+        <components:CustomTextBox Grid.Column="1" Grid.Row="7" Text="{Binding ActivityName}" Description="Aktivitetnamn" Width="150" HorizontalAlignment="Left" />
+        <ComboBox Grid.Column="1" Grid.Row="9" ItemsSource="{Binding Departments}" SelectedItem="{Binding Department}" Visibility="{Binding DepartmentVisibility, Mode=OneTime}" Width="150" HorizontalAlignment="Left"></ComboBox>
+        <components:CustomButton Grid.Column="1" Grid.Row="11" Command="{Binding SaveActivityCommand}" Content="Spara aktivitet" FontSize="15" HorizontalAlignment="Left" />
+    </Grid>
+</UserControl>

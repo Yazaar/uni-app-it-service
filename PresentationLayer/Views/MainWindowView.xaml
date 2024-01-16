@@ -1,0 +1,110 @@
+﻿<Window x:Class="PresentationLayer.Views.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PresentationLayer.Views"
+        xmlns:uc="clr-namespace:PresentationLayer.Views.UserControls"
+        xmlns:vm="clr-namespace:PresentationLayer.ViewModel"
+        xmlns:ucvm="clr-namespace:PresentationLayer.ViewModel.UserControls"
+        mc:Ignorable="d"
+        Title="IT-Service" Height="500" Width="800" Background="#242536">
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type ucvm:LoginViewModel}">
+            <uc:LoginView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:MenuViewModel}">
+            <uc:MenuView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:CustomerViewModel}">
+            <uc:CustomerView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:ProductViewModel}">
+            <uc:ProductView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:NewProductViewModel}">
+            <uc:NewProductView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:EditProductViewModel}">
+            <uc:EditProductView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:ManageProductGroupsViewModel}">
+            <uc:ManageProductGroupsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:EmployeesViewModel}">
+            <uc:EmployeesView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:NewEmployeeViewModel}">
+            <uc:NewEmployeeView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:EditEmployeeViewModel}">
+            <uc:EditEmployeeView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:ProductExpenseBudgetViewModel}">
+            <uc:ProductExpenseBudgetView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:ActivityExpenseBudgetViewModel}">
+            <uc:ActivityExpenseBudgetView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:SchablonExpenseViewModel}">
+            <uc:SchablonExpenseView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:ReturnOfInvestmentViewModel}">
+            <uc:ReturnOfInvestmentView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:LockRevenueBudgetsViewModel}">
+            <uc:LockRevenueBudgetsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:RevenueBudgetsByCustomerViewModel}">
+            <uc:RevenueBudgetsByCustomerView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:NewRevenueBudgetCustomerViewModel}">
+            <uc:NewEditRevenueBudgetCustomerView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:EditRevenueBudgetCustomerViewModel}">
+            <uc:NewEditRevenueBudgetCustomerView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:RevenueBudgetsByProductViewModel}">
+            <uc:RevenueBudgetsByProductView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:NewRevenueBudgetProductViewModel}">
+            <uc:NewEditRevenueBudgetProductView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:EditRevenueBudgetProductViewModel}">
+            <uc:NewEditRevenueBudgetProductView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:ActivitiesViewModel}">
+            <uc:ActivitiesView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:NewActivityViewModel}">
+            <uc:NewActivityView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:EditActivityViewModel}">
+            <uc:EditActivitiesView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:PrognosisViewModel}">
+            <uc:PrognosisView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:ResultsViewModel}">
+            <uc:ResultsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ucvm:SystemadministrationViewModel}">
+            <uc:SystemadministrationView />
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        
+        <ContentControl Content="{Binding CurrentView}" />
+
+    </Grid>
+</Window>

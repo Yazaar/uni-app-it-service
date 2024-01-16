@@ -1,0 +1,9 @@
+username	password	role
+sys		sys		Systemansvarig/System admin
+ekonchef	ekonchef	Ekonomichef/Economy chief
+drift		drift		Driftchef/Operational chief
+utv		utv		Utvecklingschef/Development chief
+fsgmark		fsgmark		Försäljning- och markandschef/Sales and markering chief
+adm		adm		Administrationschef/Admin chief
+perschef	perschef	Personalchef/Staff chief
+pers		pers		Personal/Staff
